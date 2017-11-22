@@ -16,7 +16,7 @@
   </div>
 </template>
 
-<script type = "text/javascript" >
+<script type="text/javascript">
   import sweetalert from 'sweetalert';
   import Todo from './Todo';
 
@@ -52,8 +52,8 @@
 </script>
 
 <style scoped>
-p.tasks {
-  text-align: center;
-}
+  p.tasks {
+    text-align: center;
+  }
 </style>
 
