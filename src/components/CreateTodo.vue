@@ -12,16 +12,13 @@
           <div class="field">
             <label for="">Title</label>
             <input type="text"
-                   ref="title"
-                   v-model="titleText"
-                   defaultValue="">
+                   v-model="titleText">
           </div>
         </div>
         <div class="field">
           <label for="">Project</label>
           <input type="text"
-                 ref="project"
-                 defaultValue="">
+                 v-model="projectText">
         </div>
         <div class="ui two button attached buttons">
           <button class="ui basic blue button"
@@ -63,9 +60,10 @@
             project,
             done: false,
           });
-          this.newTodoText = '';
+          this.titleText = '';
+          this.projectText = '';
+          this.isCreating = false;
         }
-        this.isCreating = false;
       },
     },
   };

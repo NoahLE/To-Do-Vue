@@ -3,8 +3,7 @@
 
     <!-- The todos are shown when not in editing mode -->
     <div class="content"
-         v-show="!isEditing"
-    >
+         v-show="!isEditing">
       <div class="header">
         {{ todo.title }}
       </div>
@@ -13,13 +12,11 @@
       </div>
       <div class="extra content">
         <span class="right floated edit icon"
-              v-on:click="showForm"
-        >
+              v-on:click="showForm">
           <i class="edit icon"></i>
         </span>
         <span class="right floated trash icon"
-              v-on:click="deleteTodo(todo)"
-        >
+              v-on:click="deleteTodo(todo)">
           <i class="trash icon"></i>
         </span>
       </div>
@@ -27,25 +24,21 @@
 
     <!-- The form is visible when in editing mode -->
     <div class="content"
-         v-show="isEditing"
-    >
+         v-show="isEditing">
       <div class="ui form">
         <div class="field">
           <label for="">Title</label>
           <input type="text"
-                 v-model="todo.title"
-          >
+                 v-model="todo.title">
         </div>
         <div class="field">
           <label for="">Project</label>
           <input type="text"
-                 v-model="todo.project"
-          >
+                 v-model="todo.project">
         </div>
         <div class="ui two button attached buttons">
           <button class="ui basic blue button"
-                  v-on:click="hideForm"
-          >
+                  v-on:click="hideForm">
             Close X
           </button>
         </div>
@@ -53,12 +46,10 @@
     </div>
 
     <div class="ui bottom attached green basic button"
-         v-show="todo.done"
-    >Completed
+         v-show="todo.done">Completed
     </div>
     <div class="ui bottom attached red basic button"
-         v-show="!todo.done"
-    >Complete
+         v-show="!todo.done">Complete
     </div>
 
   </div>
@@ -81,6 +72,9 @@
       },
       deleteTodo(todo) {
         this.$emit('delete-todo', todo);
+      },
+      completeTodo(todo) {
+        this.$emit('complete-todo', todo);
       },
     },
   };
