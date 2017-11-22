@@ -1,61 +1,67 @@
 <template>
-  <div class="ui centered card">
+  <div class='ui centered card'>
 
-    <!-- The todos are shown when not in editing mode -->
+    <!-- Todo list view (not editing) -->
     <div class="content"
          v-show="!isEditing">
-      <div class="header">
+      <div class='header'>
         {{ todo.title }}
       </div>
-      <div class="meta">
+      <div class='meta'>
         {{ todo.project }}
       </div>
-      <div class="extra content">
-        <span class="right floated edit icon"
+
+      <!-- Edit and delete icons -->
+      <div class='extra content'>
+        <span class='right floated'
               v-on:click="showForm">
-          <i class="edit icon"></i>
+          <i class='edit icon large hover-mouse'></i>
         </span>
-        <span class="right floated trash icon"
+        <span class='right floated'
               v-on:click="deleteTodo(todo)">
-          <i class="trash icon"></i>
+          <i class='trash icon large hover-mouse'></i>
         </span>
       </div>
     </div>
 
-    <!-- The form is visible when in editing mode -->
-    <div class="content"
-         v-show="isEditing">
-      <div class="ui form">
-        <div class="field">
-          <label for="">Title</label>
-          <input type="text"
+    <!-- Editing view -->
+    <div class="content" v-show="isEditing">
+      <div class='ui form'>
+        <div class='field'>
+          <label for="title">Title</label>
+          <input id="title"
+                 type='text'
                  v-model="todo.title">
         </div>
-        <div class="field">
-          <label for="">Project</label>
-          <input type="text"
+        <div class='field'>
+          <label for="project">Project</label>
+          <input id="project"
+                 type='text'
                  v-model="todo.project">
         </div>
-        <div class="ui two button attached buttons">
-          <button class="ui basic blue button"
+        <div class='ui two button attached buttons'>
+          <button class='ui basic blue button'
                   v-on:click="hideForm">
-            Close X
+            Save and close
           </button>
         </div>
       </div>
     </div>
 
-    <div class="ui bottom attached green basic button"
-         v-show="todo.done">Completed
+    <!-- Pending or Completed buttons -->
+    <div class='ui bottom attached green basic button'
+         v-show="!isEditing &&todo.done" disabled>
+      Completed
     </div>
-    <div class="ui bottom attached red basic button"
-         v-show="!todo.done">Complete
+    <div class='ui bottom attached red basic button'
+         v-on:click="completeTodo(todo)" v-show="!isEditing && !todo.done">
+      Pending
     </div>
-
   </div>
+
 </template>
 
-<script>
+<script type="text/javascript">
   export default {
     props: ['todo'],
     data() {
@@ -64,22 +70,24 @@
       };
     },
     methods: {
+      completeTodo(todo) {
+        this.$emit('complete-todo', todo);
+      },
+      deleteTodo(todo) {
+        this.$emit('delete-todo', todo);
+      },
       showForm() {
         this.isEditing = true;
       },
       hideForm() {
         this.isEditing = false;
       },
-      deleteTodo(todo) {
-        this.$emit('delete-todo', todo);
-      },
-      completeTodo(todo) {
-        this.$emit('complete-todo', todo);
-      },
     },
   };
 </script>
 
 <style>
-
+  .hover-mouse {
+    cursor: pointer;
+  }
 </style>

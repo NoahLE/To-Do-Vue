@@ -1,6 +1,8 @@
-# todo-app
+# To-Do List using Vue.js
 
-> A Vue.js sandbox project
+> A Vue.js To-Do list
+
+Users can create, edit, delete, and mark tasks as complete. It was built using the `vue-cli` scaffold, `semantic 2.0` for styling, `jQuery`, and `sweetalert`.
 
 ## Build Setup
 
@@ -27,4 +29,4 @@ npm run e2e
 npm test
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
