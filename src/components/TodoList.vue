@@ -1,9 +1,18 @@
 <template>
   <div>
-    <p>Completed tasks: {{todos.filter(todo => {return todo.done === true}).length}}</p>
-    <p>Pending tasks: {{todos.filter(todo => {return todo.done === false}).length}}</p>
+    <p>Completed tasks:
+      {{todos.filter(todo => {return todo.done === true}).length}}
+    </p>
+    <p>Pending tasks:
+      {{todos.filter(todo => {return todo.done === false}).length}}
+    </p>
 
-    <todo v-for="todo in todos" v-bind:todo="todo" v-bind:key="todo.id" v-on:delete-todo="deleteTodo"></todo>
+    <todo
+      v-for="todo in todos"
+      v-bind:todo="todo"
+      v-bind:key="todo.id"
+      v-on:delete-todo="deleteTodo"
+    ></todo>
   </div>
 </template>
 
