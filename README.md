@@ -2,7 +2,7 @@
 
 > A Vue.js To-Do list
 
-Users can create, edit, delete, and mark tasks as complete. It was built using the `vue-cli` scaffold, `semantic 2.0` for styling, `jQuery`, and `sweetalert`.
+Users can create, edit, delete, and mark tasks as complete. It was built using the `vue-cli` scaffold, `semantic 2.0` for styling, `jQuery`, and `sweetalert`. The original code is from [this tutorial](https://scotch.io/tutorials/build-a-to-do-app-with-vue-js-2#toc-editing-a-todo), but it has been modified since the tutorial and repository code were significantly different.
 
 ## Build Setup
 
